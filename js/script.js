@@ -2,7 +2,7 @@
 //Creare un array di oggetti: 
 //Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso. 
 //Stampare a schermo la bici con peso minore utilizzando destructuring e template literal
-
+/*
 const bici = [
     {
         nome: 'Bici Lite',
@@ -30,7 +30,7 @@ const {nome, peso} = biciPiuLeggera;
 const string = `<strong>${nome}</strong> è la bici più leggera del negozio, con un peso di <strong>${peso} kg </strong>.`
 
 document.getElementById('biciLeggera').innerHTML = string;
-
+*/
 
 
 
@@ -153,17 +153,17 @@ const vetrina = [
     {
         nome: 'Vegas',
         tipologia: 'Pantalone',
-        colore: 'red',
+        colore: 'rosso',
     },
     {
         nome: 'London kid',
         tipologia: 'Pantaloncini',
-        colore: 'orange',
+        colore: 'arancione',
     },
     {
         nome: 'Lebron',
         tipologia: 'Scarpe',
-        colore: 'black',
+        colore: 'nero',
     },
 ]
 
@@ -186,3 +186,15 @@ console.log(`-----------Vetrina prima della modifica-----------`);
 console.table(vetrina);
 console.log(`-----------Vetrina dopo della modifica-----------`);
 console.table(newVetrina);
+
+// BONUS
+const prezzoMax = 25;
+const filteredVetrina = newVetrina.filter((element) => {
+    return element.prezzo <= prezzoMax; 
+})
+
+console.log(`I capi più economici (max 25€) sono: `);
+const outputString = filteredVetrina.forEach((element, index) => {
+    const {nome, tipologia, colore, prezzo} = element;
+    console.log(`${index+1} - ${nome} (${tipologia}) dal colore ${colore} al prezzo di ${prezzo}€`);
+})
