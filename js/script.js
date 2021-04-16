@@ -169,11 +169,11 @@ const vetrina = [
 
 const newVetrina = vetrina.map((element) => {
     const random = (min, max) =>  Math.floor( Math.random() * (max - min + 1) + min ); // random number con arrow function
-    array = {
+    item = {
         ...element,
         prezzo: rand = random(10, 50),
     }
-    return array;
+    return item;
 })
 
 console.log(`
