@@ -101,7 +101,7 @@ function random(min, max) {
     La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri
     inseriti dall'utente (è possibile usare, ad esempio, for/foreach/filter
  */
-
+/*
 const myArray = ['Paolo', 'Fabio', 'Lorenzo', 'Giovanni', 'Giuseppe', 'Sarah'];
 
 // chiedo all'utente di indicare il numero min
@@ -128,7 +128,7 @@ OUTPUT SNACK 3
 `);
 console.log('Array originale', myArray);
 console.log('Array Filtrato:', newArrayFiltered);
-
+*/
 
 
 
@@ -168,10 +168,10 @@ const vetrina = [
 ]
 
 const newVetrina = vetrina.map((element) => {
-    let rand = random(10, 50);
+    const random = (min, max) =>  Math.floor( Math.random() * (max - min + 1) + min ); // random number con arrow function
     array = {
         ...element,
-        prezzo: rand,
+        prezzo: rand = random(10, 50),
     }
     return array;
 })
@@ -186,11 +186,3 @@ console.log(`-----------Vetrina prima della modifica-----------`);
 console.table(vetrina);
 console.log(`-----------Vetrina dopo della modifica-----------`);
 console.table(newVetrina);
-
-
-/**
- * numero random
- */
-function random(min, max) {
-    return Math.floor( Math.random() * (max - min + 1) + min );
-}
