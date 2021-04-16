@@ -41,7 +41,7 @@ document.getElementById('biciLeggera').innerHTML = string;
 //Generare numeri random al posto degli 0 nelle proprietà:
 //Punti fatti e falli subiti
 //Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
-
+/*
 var teams = [
     {
         nome: 'PSG',
@@ -92,4 +92,105 @@ console.table(newTeams);
 // random function
 function random(min, max) {
     return Math.floor(Math.random() * (max - min +1)) + min;
+}
+*/
+
+/**
+ * jsnack 3
+    Si scriva una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b).
+    La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri
+    inseriti dall'utente (è possibile usare, ad esempio, for/foreach/filter
+ */
+
+const myArray = ['Paolo', 'Fabio', 'Lorenzo', 'Giovanni', 'Giuseppe', 'Sarah'];
+
+// chiedo all'utente di indicare il numero min
+let min = parseInt(prompt(`Inserisci un numero tra 0 e ${myArray.length - 1}`));
+while (isNaN(min) || min < 0 || min > myArray.length) {
+    min = parseInt(prompt(`Inserisci un numero tra 0 e ${myArray.length - 1}`));
+}
+
+// chiedo all'utente di indicare il numero max
+let max = parseInt(prompt(`Inserisci un numero tra ${min} e ${myArray.length - 1}`));
+while (isNaN(max) || min > max || max > myArray.length) {
+    max = parseInt(prompt(`Inserisci un numero tra ${min} e ${myArray.length - 1}`));
+}
+
+// con il metodo filter ritorno solo i valori dell array compresi tra gli input dell utente
+const newArrayFiltered = myArray.filter((element, index) => {
+    return min <= index && max >= index;
+});
+console.log(`
+
+
+OUTPUT SNACK 3
+-----------
+`);
+console.log('Array originale', myArray);
+console.log('Array Filtrato:', newArrayFiltered);
+
+
+
+
+/*
+jsnack 4
+Dato un'array con dei capi d'abbigliamento - oggetti che contengono informazioni su nome modello, tipologia e colore -
+ si aggiunga a ciascun elemento una ulteriore proprietà che indichi il costo del prodotto.
+Per inserire il costo del singolo prodotto si scriva una funzione che generi un numero random da 10 a 50 (potete sfruttare il map per aggiungere la nuova proprietà)
+*/
+
+const vetrina = [
+    {
+        nome: 'Jersey',
+        tipologia: 'Maglietta',
+        colore: 'beige',
+    },
+    {
+        nome: 'York',
+        tipologia: 'Giacca',
+        colore: 'blu',
+    },
+    {
+        nome: 'Vegas',
+        tipologia: 'Pantalone',
+        colore: 'red',
+    },
+    {
+        nome: 'London kid',
+        tipologia: 'Pantaloncini',
+        colore: 'orange',
+    },
+    {
+        nome: 'Lebron',
+        tipologia: 'Scarpe',
+        colore: 'black',
+    },
+]
+
+const newVetrina = vetrina.map((element) => {
+    let rand = random(10, 50);
+    array = {
+        ...element,
+        prezzo: rand,
+    }
+    return array;
+})
+
+console.log(`
+
+
+OUTPUT SNACK 4
+-----------
+`);
+console.log(`-----------Vetrina prima della modifica-----------`);
+console.table(vetrina);
+console.log(`-----------Vetrina dopo della modifica-----------`);
+console.table(newVetrina);
+
+
+/**
+ * numero random
+ */
+function random(min, max) {
+    return Math.floor( Math.random() * (max - min + 1) + min );
 }
